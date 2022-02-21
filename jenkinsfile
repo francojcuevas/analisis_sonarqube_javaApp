@@ -10,7 +10,7 @@ pipeline {
         }                        
         stage('SonarQube analysis') {
             steps {
-		withSonarQubeEnv(credentialsId: 'token_sonar') {
+		withSonarQubeEnv('sonarqube-8.9.2') {
 		sh "mvn sonar:sonar"
    
 		}
