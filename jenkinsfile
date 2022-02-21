@@ -5,26 +5,18 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh '''
-			echo build 
-                    '''   
+                sh 'mvn package'   
             }
         }                        
-        stage('Test') {
+        stage('SonarQube analysis) {
             steps {
-		sh 'echo test' 
+		withSonarQubeEnv(credentialsId: 'token_sonar') {
+		sh "mvn sonar:sonar"
+   
+		}
             }
         }
-        stage('Push') {
-            steps {
-		sh 'echo push'
-            }
-        }
-        stage('Deploy') {
-            steps {
-		sh 'echo deploy'
-            }
-        }
-    }
+
+   	}
 }
 
