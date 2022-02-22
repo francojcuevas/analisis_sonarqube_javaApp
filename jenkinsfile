@@ -17,7 +17,7 @@ pipeline {
         }
 	
             steps {
-	        withSonarQubeEnv(credentialsId: 'token_sonar', installationName: 'sonarqube_scanner'){
+	        withSonarQubeEnv(credentialsId: 'token_sonar'){
 		sh 'mvn clean test'
 		}
             }
