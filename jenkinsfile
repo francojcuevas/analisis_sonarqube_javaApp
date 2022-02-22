@@ -2,6 +2,11 @@ pipeline {
 
     agent any
     stages {
+            stage('SCM Checkout') {
+            steps {
+              git 'https://github.com/francojcuevas/analisis_sonarqube_javaApp.git'   
+            }
+        }          
 
         stage('Build') {
             steps {
