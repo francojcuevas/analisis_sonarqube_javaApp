@@ -12,7 +12,10 @@ pipeline {
         }                        
         stage('SonarQube analysis') {
 	
-	//def scannerHome = tool 'sonar_scanner';
+	environment {
+            scannerHome = tool 'SonarQube_4.3.0'
+        }
+	
             steps {
 	        withSonarQubeEnv(credentialsId: 'token_sonar', installationName: 'sonarqube_scanner'){
 		sh 'mvn clean test'
