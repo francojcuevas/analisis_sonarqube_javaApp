@@ -15,7 +15,7 @@ pipeline {
 	//def scannerHome = tool 'sonar_scanner';
             steps {
 		withSonarQubeEnv('sonar_scanner') {
-		sh "mvn sonar_scanner:sonar2
+		sh "mvn sonar_scanner"
 		}
             }
         }
