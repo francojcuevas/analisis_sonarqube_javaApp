@@ -2,9 +2,7 @@ pipeline {
 
     agent any
     stages {
-    
-    checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '']], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/francojcuevas/analisis_sonarqube_javaApp']]])
-    
+   
         stage('Build') {
             steps {
               sh 'mvn clean package'   
