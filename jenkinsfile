@@ -14,7 +14,7 @@ pipeline {
 	
 	//def scannerHome = tool 'sonar_scanner';
             steps {
-		withSonarQubeEnv('sonar_scanner', installationName:'sonar_scanner') {
+	        withSonarQubeEnv(credentialsId: 'token-sonar', installationName: 'sonar_scanner'){
 		sh 'mvn clean test'
 		}
             }
